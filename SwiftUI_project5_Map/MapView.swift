@@ -8,7 +8,10 @@ struct MapView: View {
     
     var body: some View {
         Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
-            
+            .frame(width: 600, height: 600)
+            .clipShape(Circle())
+            .overlay(Circle().stroke(Color.white, lineWidth: 3))
+            .shadow(radius: 7)
     }
 }
 

@@ -6,11 +6,10 @@ struct ContentView: View {
     var body: some View {
         //상단에 VStack을 하나더 쌓는다.
         VStack {
-            MapView()
+            ARCLView()
                 .ignoresSafeArea(edges: .top)
                 .frame(height: 300)
-                
-            
+
             CircleImage()
                 .offset(y: -110)
                 //offset의 y값을 준만큼 패딩도 할당해줘야함
@@ -45,6 +44,12 @@ struct ContentView: View {
             .padding()
             //뷰를 상단으로 배치
             Spacer()
+            
+            MapView()
+                .overlay(Circle().stroke(Color.red, lineWidth: 3))
+                .padding(.bottom, -250)
+                .ignoresSafeArea(edges: .all)
+                .frame(width: 600.0)
         }
     }
 }
